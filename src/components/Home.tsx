@@ -22,7 +22,9 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/data");
+        const response = await fetch(
+          "https://dbms-da-backend.satyamdwivedi.com.np/data"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -39,9 +41,12 @@ export default function Home() {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/data/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://dbms-da-backend.satyamdwivedi.com.np/data/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -59,13 +64,16 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://dbms-da-backend.satyamdwivedi.com.np/data",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
