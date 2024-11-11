@@ -154,10 +154,26 @@ export default function Home() {
         {data.map((item) => (
           <div key={item._id} className="border rounded m-4 p-2">
             <div className="flex flex-col justify-center items-center h-full">
-              <p>{item.name}</p>
-              <p>{item.register}</p>
-              <p>{item.age}</p>
-              <p>{item.degree}</p>
+              <table className="w-full ">
+                <tbody>
+                  <tr>
+                    <td>Name:</td>
+                    <td>{item.name}</td>
+                  </tr>
+                  <tr>
+                    <td>Registration No.:</td>
+                    <td>{item.register}</td>
+                  </tr>
+                  <tr>
+                    <td>Age:</td>
+                    <td>{item.age}</td>
+                  </tr>
+                  <tr>
+                    <td>Degree:</td>
+                    <td>{item.degree}</td>
+                  </tr>
+                </tbody>
+              </table>
               <button
                 className="border w-1/2 md:w-1/4 bg-white rounded text-black"
                 onClick={() => handleDelete(item._id)}
